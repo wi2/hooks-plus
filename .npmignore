@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+.vscode/
+.gitignore
+jest.config.js
+tsconfig.json
+.eslintrc.js
+.prettierrc.js
+webpack.config.js
+src/index.ts
+src/*.tsx
+src/hooks/*.tsx
+
