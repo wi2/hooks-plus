@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import useWi2Methods, { useSmart } from '../useWi2Methods'
 
-const SMART_TIME = 500
+import useMethods from '../useMethods'
+import useSmart from '../useSmart'
 
-function useWi2State(initialValue: any, options: any = {}, methods: any[] = []): any[] {
+function useSmartState(initialValue: any, options: any = {}, methods: any[] = []): any[] {
   if (!options.smart) {
-    return useWi2Methods(useState(initialValue), methods)
+    return useMethods(useState(initialValue), methods)
   }
 
   const [value, setState] = useState(initialValue)
@@ -19,7 +19,7 @@ function useWi2State(initialValue: any, options: any = {}, methods: any[] = []):
       setState(newValue)
     }
   }
-  return useWi2Methods([value, smartSetState], methods)
+  return useMethods([value, smartSetState], methods)
 }
 
-export default useWi2State
+export default useSmartState

@@ -1,13 +1,13 @@
 import { useReducer } from 'react'
 
-import useWi2Methods, { useSmart } from '../useWi2Methods'
+import useMethods from '../useMethods'
+import useSmart from '../useSmart'
+
 import { State } from '../interfaces'
 
-const SMART_TIME = 100
-
-function useWi2Reducer(reducer: any, initialForm: State, options: any = {}, methods: any[] = [], init?: any): State[] | any[] {
+function useSmartReducer(reducer: any, initialForm: State, options: any = {}, methods: any[] = [], init?: any): State[] | any[] {
   if (!options.smart) {
-    return useWi2Methods(useReducer(reducer, initialForm, init), methods)
+    return useMethods(useReducer(reducer, initialForm, init), methods)
   }
 
   const [state, dispatch] = useReducer((s: State, a: any) => a.smart || reducer(s, a), initialForm, init)
@@ -21,7 +21,7 @@ function useWi2Reducer(reducer: any, initialForm: State, options: any = {}, meth
       dispatch(actions)
     }
   }
-  return useWi2Methods([state, smartDispatch], methods)
+  return useMethods([state, smartDispatch], methods)
 }
 
-export default useWi2Reducer
+export default useSmartReducer
