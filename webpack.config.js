@@ -24,7 +24,7 @@ const MODULE = {
 }
 const OUTPUT = {
   filename: '[name].js',
-  libraryTarget: 'umd',
+  libraryTarget: 'commonjs2',
   library: '@wi2/hooks-plus',
   path: DESTINATION,
 }
